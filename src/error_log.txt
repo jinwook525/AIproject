@@ -1,0 +1,7 @@
+2025-01-15 18:35:19.771578 - Unexpected error: could not convert string to float: '데이터없음'
+2025-01-17 17:33:06.451545 - Unexpected error: could not convert string to float: '데이터없음'
+2025-01-17 17:33:39.521315 - Unexpected error: could not convert string to float: '데이터없음'
+2025-01-17 17:43:06.919393 - Unexpected error: could not convert string to float: '데이터없음'
+2025-01-17 17:43:40.030445 - Unexpected error: could not convert string to float: '데이터없음'
+2025-01-17 17:53:07.582813 - Unexpected error: could not convert string to float: '데이터없음'
+2025-01-17 17:53:40.658249 - Unexpected error: could not convert string to float: '데이터없음'
