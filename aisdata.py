@@ -60,7 +60,7 @@ def save_to_database(data):
         cursor = conn.cursor()
         # 데이터 삽입 SQL
         sql = '''
-        INSERT INTO aisdatatest (msg_type, mmsi, status, turn, speed, accuracy, lon, lat, course, heading)
+        INSERT INTO aisdata (msg_type, mmsi, status, turn, speed, accuracy, lon, lat, course, heading)
         VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         '''
         logging.debug(f"삽입할 데이터: {data}")
