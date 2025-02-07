@@ -81,7 +81,8 @@ def fetch_latest_ais_data():
 
         # 데이터를 데이터프레임으로 변환
         df = pd.DataFrame(results)
-
+        # ✅ 데이터베이스에서 가져온 MMSI 확인
+        print("✅ 데이터베이스에서 가져온 MMSI 목록:", df["mmsi"].unique()) 
         # MMSI별로 최신 데이터 2개 존재하는지 확인
         if df["mmsi"].nunique() == 0 or df.shape[0] < 2:
             return None  # 각 선박별로 2개 데이터가 존재하지 않으면 거리 계산 불가
@@ -254,6 +255,7 @@ def preprocess():
             df_ais[col] = 0  # 누락된 컬럼을 0으로 추가
 
     # 🚀 이제 KeyError 발생 없이 선택된 컬럼만 유지
+    df_ais_mmsi = df_ais[["mmsi"]]
     df_ais = df_ais[selected_columns]
 
     # 🚀 데이터 크기 확인
@@ -288,8 +290,9 @@ def preprocess():
 
 
     # PyTorch Tensor 변환 (각 MMSI별 데이터 반환)
-    tensors = {mmsi: torch.tensor(normalized_data[idx], dtype=torch.float32)
-               for idx, mmsi in enumerate(df_ais.index)}
+    tensors = {mmsi: torch.tensor(row, dtype=torch.float32)
+              for mmsi, row in zip(df_ais_mmsi["mmsi"], normalized_data)}
+
     print('preprocessing end')
     return tensors  # MMSI별 텐서 반환
 
@@ -302,5 +305,4 @@ if __name__ == "__main__":
     # 🔥 테스트 실행
     processed_data = preprocess()
     print("실시간 전처리된 데이터:", processed_data)
-
 
