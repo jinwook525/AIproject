@@ -13,10 +13,10 @@ class LSTMModel(nn.Module):
 
 # ✅ 저장된 모델과 동일한 설정 사용
 INPUT_SIZE = 30  # 🚨 저장할 때 사용한 X_train.shape[2] 값과 동일해야 함
-HIDDEN_SIZE = 96  # 🚨 저장할 때 사용한 hidden_size 값과 동일해야 함
-NUM_LAYERS = 1  # 동일해야 함
+HIDDEN_SIZE = 128  # 🚨 저장할 때 사용한 hidden_size 값과 동일해야 함
+NUM_LAYERS = 2  # 동일해야 함
 OUTPUT_SIZE = 2  # 동일해야 함
-DROPOUT = 0.3  # 동일해야 함
+DROPOUT = 0.0  # 동일해야 함
 
 # ✅ 모델 초기화 후 가중치 로드
 model = LSTMModel(INPUT_SIZE, HIDDEN_SIZE, NUM_LAYERS, OUTPUT_SIZE, DROPOUT)
