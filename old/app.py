@@ -3,7 +3,7 @@ import torch
 import preprocessing  # 전처리 모듈
 import model  # AI 모델 모듈
 import logging
-import numpy as np
+import numpy as nppy
 
 app = Flask(__name__)
 
